@@ -1,0 +1,14 @@
+<!-- @dsCard group="Inputs" height=150 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>TextField</title></head>
+<body>
+<div id="root" class="cm-row" style="align-items:flex-start"></div>
+<script>
+  var C = window.Claymorph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(C.TextField, { label: 'Habit name', placeholder: 'e.g. Read 10 pages', hint: 'Short and specific works best.' }),
+    h(C.TextField, { label: 'Daily goal', defaultValue: '0', error: 'Pick at least 1.' })));
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* Claymorph tokens, generated from tokens.json. Light is the default; dark follows
+   data-theme="dark" on <html>, or the OS setting when no data-theme is set. */
+
+:root, [data-theme="light"] {
+  --surface: #efe8df;
+  --surface-raised: #f9f5f0;
+  --surface-sunken: #e4dbd0;
+  --line: #d6cabd;
+  --ink: #2d241d;
+  --ink-muted: #685a4d;
+  --clay: #ef8f6f;
+  --on-clay: #3a1a0e;
+  --clay-text: #a3401f;
+  --clay-soft: #f9d6c8;
+  --mint: #93d5b7;
+  --on-mint: #12382a;
+  --mint-text: #22694b;
+  --mint-soft: #d4efe2;
+  --butter: #f5d779;
+  --on-butter: #3b2f08;
+  --danger: #9e2f1a;
+  --danger-soft: #f8d5cc;
+  --link: var(--clay-text);
+  --font-display: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-rounded, system-ui, sans-serif;
+  --type-display-xl-size: 56px;
+  --type-display-xl-line-height: 60px;
+  --type-display-xl-weight: 600;
+  --type-display-xl-letter-spacing: -0.02em;
+  --type-display-size: 40px;
+  --type-display-line-height: 46px;
+  --type-display-weight: 600;
+  --type-display-letter-spacing: -0.01em;
+  --type-heading-size: 26px;
+  --type-heading-line-height: 32px;
+  --type-heading-weight: 500;
+  --type-title-size: 18px;
+  --type-title-line-height: 24px;
+  --type-title-weight: 800;
+  --type-body-size: 16px;
+  --type-body-line-height: 24px;
+  --type-body-weight: 400;
+  --type-label-size: 15px;
+  --type-label-line-height: 20px;
+  --type-label-weight: 700;
+  --type-caption-size: 13px;
+  --type-caption-line-height: 18px;
+  --type-caption-weight: 600;
+  --type-caption-letter-spacing: 0.01em;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-full: 9999px;
+  --shadow-clay: 10px 12px 24px #8a6f5a40, inset -6px -6px 12px #5a3a2a26, inset 6px 6px 12px #ffffffcc;
+  --shadow-clay-sm: 5px 6px 12px #8a6f5a40, inset -3px -3px 6px #5a3a2a26, inset 3px 3px 6px #ffffff99;
+  --shadow-clay-lg: 16px 20px 40px #8a6f5a4d, inset -8px -8px 16px #5a3a2a26, inset 8px 8px 16px #ffffffcc;
+  --shadow-clay-pressed: inset 4px 4px 8px #8a6f5a40, inset -4px -4px 8px #ffffffb3;
+  --focus-ring: 0 0 0 3px #efe8df, 0 0 0 6px #a3401f;
+}
+
+[data-theme="dark"] {
+  --surface: #26211d;
+  --surface-raised: #332c27;
+  --surface-sunken: #1e1a17;
+  --line: #4a413a;
+  --ink: #f5ede4;
+  --ink-muted: #c4b6a8;
+  --clay: #f29a7c;
+  --on-clay: #2a140b;
+  --clay-text: #f6ab92;
+  --clay-soft: #4a2a1f;
+  --mint: #6fbf9c;
+  --on-mint: #0f2a1f;
+  --mint-text: #8fdcb9;
+  --mint-soft: #1f3a2e;
+  --butter: #e3c25e;
+  --on-butter: #2a2105;
+  --danger: #ff9d8a;
+  --danger-soft: #4a1f17;
+  --shadow-clay: 10px 12px 24px #00000080, inset -6px -6px 12px #00000059, inset 6px 6px 12px #ffffff14;
+  --shadow-clay-sm: 5px 6px 12px #00000080, inset -3px -3px 6px #0000004d, inset 3px 3px 6px #ffffff1f;
+  --shadow-clay-lg: 16px 20px 40px #00000099, inset -8px -8px 16px #00000059, inset 8px 8px 16px #ffffff14;
+  --shadow-clay-pressed: inset 4px 4px 8px #00000080, inset -4px -4px 8px #ffffff12;
+  --focus-ring: 0 0 0 3px #26211d, 0 0 0 6px #f6ab92;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --surface: #26211d;
+    --surface-raised: #332c27;
+    --surface-sunken: #1e1a17;
+    --line: #4a413a;
+    --ink: #f5ede4;
+    --ink-muted: #c4b6a8;
+    --clay: #f29a7c;
+    --on-clay: #2a140b;
+    --clay-text: #f6ab92;
+    --clay-soft: #4a2a1f;
+    --mint: #6fbf9c;
+    --on-mint: #0f2a1f;
+    --mint-text: #8fdcb9;
+    --mint-soft: #1f3a2e;
+    --butter: #e3c25e;
+    --on-butter: #2a2105;
+    --danger: #ff9d8a;
+    --danger-soft: #4a1f17;
+    --shadow-clay: 10px 12px 24px #00000080, inset -6px -6px 12px #00000059, inset 6px 6px 12px #ffffff14;
+    --shadow-clay-sm: 5px 6px 12px #00000080, inset -3px -3px 6px #0000004d, inset 3px 3px 6px #ffffff1f;
+    --shadow-clay-lg: 16px 20px 40px #00000099, inset -8px -8px 16px #00000059, inset 8px 8px 16px #ffffff14;
+    --shadow-clay-pressed: inset 4px 4px 8px #00000080, inset -4px -4px 8px #ffffff12;
+    --focus-ring: 0 0 0 3px #26211d, 0 0 0 6px #f6ab92;
+  }
+}

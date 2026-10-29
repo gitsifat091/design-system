@@ -1,0 +1,35 @@
+<!-- @dsCard group="Containers" height=330 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StatCard</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var S = L.StatCard;
+  return h('div', { className: 'lm-pad', style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 'var(--space-4)' } },
+    h(S, { label: 'Revenue', value: '$48,290', delta: '12.4%', trend: 'up', caption: 'vs last month', icon: 'chart' }),
+    h(S, { label: 'Active users', value: '2,814', delta: '3.1%', trend: 'up', caption: 'vs last month', icon: 'users' }),
+    h(S, { label: 'Churn', value: '1.8%', delta: '0.4 pts', trend: 'down', caption: 'vs last month', icon: 'arrow-down' }),
+    h(S, { label: 'Open tickets', value: '37', delta: '0', trend: 'flat', caption: 'no change', icon: 'help' }));
+});
+</script>
+</body>
+</html>

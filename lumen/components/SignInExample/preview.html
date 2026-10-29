@@ -1,0 +1,47 @@
+<!-- @dsCard group="Examples" height=720 width=1100 page subtitle="Auth layout with large controls" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SignInExample</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+  #root { height: 720px; }
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var B = L.Button;
+  return h('div', { style: { height: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', background: 'var(--bg)' } },
+    h('div', { style: { padding: 'var(--space-12)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', background: 'var(--surface-subtle)', borderRight: '1px solid var(--border)' } },
+      h('div', { className: 'lm-sidebar-brand', style: { padding: 0 } }, h('span', { className: 'lm-wordmark-dot' }), 'Lumen'),
+      h('div', { style: { maxWidth: 420 } },
+        h('p', { style: { margin: 0, fontSize: 30, lineHeight: '38px', fontWeight: 600, letterSpacing: '-0.02em' } }, 'Send invoices, get paid, see where your money is.'),
+        h('p', { className: 'lm-sub', style: { fontSize: 16, lineHeight: '24px', marginTop: 'var(--space-4)' } }, 'Used by 4,000 finance teams to close the month in days, not weeks.')),
+      h('div', { className: 'lm-row lm-muted', style: { fontSize: 12 } }, h(L.AvatarGroup, { names: ['Ana Silva', 'Ben Lee', 'Cara Diaz', 'Dev Rao'] }), 'Joined by 312 teams this month')),
+    h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'var(--space-12)' } },
+      h('div', { style: { width: '100%', maxWidth: 380, display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' } },
+        h('div', null, h('h1', { className: 'lm-h2' }, 'Sign in'), h('p', { className: 'lm-sub' }, 'Welcome back. Use your work email.')),
+        h(L.TextField, { size: 'lg', label: 'Email', type: 'email', icon: 'mail', defaultValue: 'samira@northwind.io' }),
+        h(L.TextField, { size: 'lg', label: 'Password', type: 'password', icon: 'lock', defaultValue: 'secret', error: 'That password is not right. Try again or reset it.', trailing: h(B, { variant: 'ghost', size: 'sm', icon: 'eye', 'aria-label': 'Show password', style: { marginRight: -8 } }) }),
+        h('div', { className: 'lm-row', style: { justifyContent: 'space-between' } }, h(L.Checkbox, { label: 'Keep me signed in', defaultChecked: true }), h('a', { href: '#', className: 'lm-link', style: { fontSize: 13 } }, 'Forgot password?')),
+        h(B, { size: 'lg', block: true }, 'Sign in'),
+        h('div', { className: 'lm-row', style: { flexWrap: 'nowrap', color: 'var(--fg-muted)', fontSize: 12 } }, h('hr', { className: 'lm-divider', style: { flex: 1 } }), 'or', h('hr', { className: 'lm-divider', style: { flex: 1 } })),
+        h(B, { size: 'lg', block: true, variant: 'secondary', icon: 'key' }, 'Continue with SSO'),
+        h('p', { className: 'lm-muted', style: { margin: 0, fontSize: 13, textAlign: 'center' } }, 'New to Lumen? ', h('a', { href: '#', className: 'lm-link' }, 'Create an account')))));
+});
+</script>
+</body>
+</html>

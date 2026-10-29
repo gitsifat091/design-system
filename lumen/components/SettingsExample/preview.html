@@ -1,0 +1,82 @@
+<!-- @dsCard group="Examples" height=1050 width=1280 page subtitle="Forms, tabs, switches, danger zone" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SettingsExample</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+  #root { min-height: 1050px; display: flex; flex-direction: column; } #root > .lm-shell { flex: 1; }
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+function Bars() {
+  var data = [32, 38, 35, 44, 41, 48, 52, 49, 58, 61, 57, 66];
+  var months = ['N','D','J','F','M','A','M','J','J','A','S','O'];
+  var W = 560, H = 200, pad = 24, bw = 28, gap = (W - pad * 2 - bw * 12) / 11, max = 70;
+  return h('svg', { viewBox: '0 0 ' + W + ' ' + (H + 24), width: '100%', role: 'img', 'aria-label': 'Monthly revenue, November to October, rising from 32 to 66 thousand dollars' },
+    [0, 20, 40, 60].map(function (v) { var y = H - v / max * H; return h('g', { key: v }, h('line', { x1: pad, x2: W - pad, y1: y, y2: y, stroke: 'var(--border)' }), h('text', { x: 0, y: y + 4, fontSize: 11, fill: 'var(--fg-muted)' }, v + 'k')); }),
+    data.map(function (v, i) { var x = pad + i * (bw + gap), bh = v / max * H; return h('g', { key: i },
+      h('rect', { x: x, y: H - bh, width: bw, height: bh, rx: 4, fill: i === 11 ? 'var(--primary)' : 'var(--fg-muted)', opacity: i === 11 ? 1 : 0.35 }),
+      h('text', { x: x + bw / 2, y: H + 18, fontSize: 11, textAnchor: 'middle', fill: 'var(--fg-muted)' }, months[i])); }));
+}
+function Usage(label, used, total, tone) {
+  var pct = Math.round(used / total * 100);
+  return h('div', { key: label, style: { display: 'flex', flexDirection: 'column', gap: 6 } },
+    h('div', { style: { display: 'flex', justifyContent: 'space-between', fontSize: 13 } }, h('span', { style: { fontWeight: 500 } }, label), h('span', { className: 'lm-muted lm-num' }, used + ' of ' + total)),
+    h('div', { style: { height: 8, borderRadius: 'var(--radius-full)', background: 'var(--surface-subtle)', border: '1px solid var(--border)', overflow: 'hidden' } },
+      h('div', { style: { width: pct + '%', height: '100%', borderRadius: 'var(--radius-full)', background: tone || 'var(--primary)' } })));
+}
+var NAV = [
+  { items: [{ label: 'Overview', icon: 'home', active: true }, { label: 'Analytics', icon: 'chart' }, { label: 'Invoices', icon: 'file', badge: 4 }, { label: 'Customers', icon: 'users' }] },
+  { label: 'Workspace', items: [{ label: 'Projects', icon: 'folder' }, { label: 'Integrations', icon: 'layers' }, { label: 'Settings', icon: 'sliders' }] }
+];
+
+mount(function () {
+  var B = L.Button;
+  var nav = NAV.map(function (s) { return { label: s.label, items: s.items.map(function (i) { return Object.assign({}, i, { active: i.label === 'Settings' }); }) }; });
+  function Section(title, desc, body) {
+    return h('div', { style: { display: 'grid', gridTemplateColumns: '280px 1fr', gap: 'var(--space-8)', alignItems: 'start' } },
+      h('div', null, h('h2', { className: 'lm-h3' }, title), h('p', { className: 'lm-sub' }, desc)), body);
+  }
+  return h('div', { className: 'lm-shell' },
+    h(L.Sidebar, { sections: nav, user: { name: 'Samira Haque', email: 'samira@northwind.io' } }),
+    h('div', { className: 'lm-main' },
+      h(L.Topbar, { breadcrumbs: [{ label: 'Northwind' }, { label: 'Settings' }] }),
+      h('main', { className: 'lm-page' },
+        h('div', null, h('h1', { className: 'lm-h1' }, 'Settings'), h('p', { className: 'lm-sub' }, 'Manage your workspace, members and billing.')),
+        h(L.Tabs, { label: 'Settings sections', items: [{ value: 'general', label: 'General' }, { value: 'members', label: 'Members', count: 18 }, { value: 'billing', label: 'Billing' }, { value: 'api', label: 'API keys' }] }),
+        Section('Workspace', 'Shown to members and on invoices you send.',
+          h(L.Card, { footer: [h(B, { key: 1, variant: 'ghost' }, 'Discard'), h(B, { key: 2 }, 'Save changes')] },
+            h('div', { className: 'lm-grid', style: { gridTemplateColumns: '1fr 1fr', gap: 'var(--space-5)' } },
+              h(L.TextField, { label: 'Workspace name', defaultValue: 'Northwind Labs', required: true }),
+              h(L.TextField, { label: 'Billing email', icon: 'mail', type: 'email', defaultValue: 'billing@northwind.io' }),
+              h(L.TextField, { label: 'Workspace URL', prefix: 'https://', suffix: '.lumen.app', defaultValue: 'acme', error: 'This URL is already taken. Try northwind-labs.', style: { gridColumn: '1 / -1' } }),
+              h(L.Select, { label: 'Timezone', defaultValue: 'Asia/Dhaka (UTC+6)', options: ['Asia/Dhaka (UTC+6)', 'Europe/London (UTC+0)', 'America/New_York (UTC-5)'] }),
+              h(L.Select, { label: 'Currency', defaultValue: 'USD', options: ['USD', 'EUR', 'GBP', 'BDT'] }),
+              h(L.TextField, { label: 'Description', optional: true, multiline: true, rows: 3, placeholder: 'What does this workspace do?', style: { gridColumn: '1 / -1' } })))),
+        Section('Notifications', 'These apply as soon as you change them.',
+          h(L.Card, null, h('div', { className: 'lm-col', style: { gap: 'var(--space-5)' } },
+            h(L.Switch, { label: 'Email me when an invoice is paid', defaultChecked: true }),
+            h(L.Switch, { label: 'Weekly revenue summary', defaultChecked: true }),
+            h(L.Switch, { label: 'Product updates and tips' })))),
+        Section('Danger zone', 'Irreversible actions for workspace owners.',
+          h(L.Card, null, h('div', { className: 'lm-row', style: { justifyContent: 'space-between', flexWrap: 'nowrap' } },
+            h('div', null, h('div', { style: { fontWeight: 600 } }, 'Delete this workspace'), h('div', { className: 'lm-muted' }, 'Removes all projects, invoices and members. This cannot be undone.')),
+            h(B, { variant: 'danger', icon: 'trash' }, 'Delete workspace')))))));
+});
+</script>
+</body>
+</html>

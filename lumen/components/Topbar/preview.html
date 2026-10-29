@@ -1,0 +1,30 @@
+<!-- @dsCard group="Navigation" height=56 width=1000 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Topbar</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  return h(L.Topbar, { breadcrumbs: [{ label: 'Northwind' }, { label: 'Invoices' }, { label: 'INV-2041' }], unread: true, user: 'Samira Haque' });
+});
+</script>
+</body>
+</html>

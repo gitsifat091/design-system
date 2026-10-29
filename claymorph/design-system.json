@@ -1,0 +1,34 @@
+{
+  "v": 3,
+  "assetGroups": {},
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-29T20:43:29Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [],
+  "lastChange": {
+    "at": "2026-10-29T20:43:29Z",
+    "by": "Sifat",
+    "note": "Created the Claymorph system: tokens, five components, cover.",
+    "via": "Cowork"
+  },
+  "layout": "files",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "name": "react-dom",
+      "version": "18"
+    }
+  ],
+  "namespace": "Claymorph",
+  "sections": {},
+  "title": "Claymorph"
+}

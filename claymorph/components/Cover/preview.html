@@ -1,0 +1,55 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claymorph</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; overflow:visible; }
+  .clay { fill:var(--clay); }
+  .mint { fill:var(--mint); }
+  .butter { fill:var(--butter); }
+  .deep { fill:var(--ink); }
+  .soft { fill:var(--clay-soft); }
+  .blk { rx:var(--radius-lg); }
+  .words { position:absolute; left:var(--space-6); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-family:var(--font-display); font-size:80px; line-height:.92; font-weight:600; letter-spacing:-.02em; color:var(--ink); }
+  .tag { margin:var(--space-2) 0 0 4px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      clay 152x288 slab bled off the top (the signature fill, largest) · mint 144x144 · butter 64x64 disc · ink 152x216 slab bleeding off the right edge · clay-soft only as cut-out discs — about 40% of 960x288
+  arrangement one tall clay slab with satellites, bottoms on one line space-6 above the edge, space-4 gutters
+  pattern     discs, from "Generous and puffy. Nothing has a sharp corner": space-4 discs at a space-8 pitch over the ink slab, alternating clay and mint and thinning upward; three clay-soft discs pressed into the clay slab
+  scales      sides in space-2 multiples; gutters space-4; pitch space-8; block corners radius-lg; discs radius-full (rx = half the side)
+-->
+<rect class="clay blk" x="24" y="-24" width="152" height="288" rx="32"/>
+<rect class="mint blk" x="192" y="120" width="144" height="144" rx="32"/>
+<rect class="butter" x="232" y="40" width="64" height="64" rx="32"/>
+<rect class="deep blk" x="352" y="48" width="152" height="216" rx="32"/>
+<circle class="soft" cx="60" cy="228" r="12"/>
+<circle class="soft" cx="100" cy="228" r="12"/>
+<circle class="soft" cx="80" cy="192" r="12"/>
+<circle class="clay" cx="384" cy="240" r="8"/><circle class="mint" cx="416" cy="240" r="8"/><circle class="clay" cx="448" cy="240" r="8"/>
+<circle class="mint" cx="384" cy="208" r="8"/><circle class="clay" cx="416" cy="208" r="8"/><circle class="mint" cx="448" cy="208" r="8"/>
+<circle class="clay" cx="384" cy="176" r="8"/><circle class="mint" cx="416" cy="176" r="8"/><circle class="clay" cx="448" cy="176" r="8"/>
+<circle class="mint" cx="416" cy="144" r="8"/><circle class="clay" cx="448" cy="144" r="8"/>
+<circle class="clay" cx="416" cy="112" r="8"/><circle class="mint" cx="448" cy="112" r="8"/>
+<circle class="mint" cx="448" cy="80" r="8"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Claymorph</h1>
+<p class="tag">Soft, puffy objects pressed out of warm clay.</p>
+</div>
+</div>
+</body>
+</html>

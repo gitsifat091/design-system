@@ -1,0 +1,17 @@
+<!-- @dsCard group="Status" height=80 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Badge</title></head>
+<body>
+<div id="root" class="cm-row" style="gap:16px"></div>
+<script>
+  var C = window.Claymorph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(C.Badge, null, '12 habits'),
+    h(C.Badge, { tone: 'clay' }, 'In progress'),
+    h(C.Badge, { tone: 'mint' }, 'Done'),
+    h(C.Badge, { tone: 'butter' }, 'New'),
+    h(C.Badge, { tone: 'danger' }, 'Overdue')));
+</script>
+</body>
+</html>

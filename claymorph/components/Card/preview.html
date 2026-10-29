@@ -1,0 +1,17 @@
+<!-- @dsCard group="Containers" height=240 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Card</title></head>
+<body>
+<div id="root" class="cm-row" style="align-items:stretch;padding:32px"></div>
+<script>
+  var C = window.Claymorph, h = React.createElement;
+  function card(tone, title, text, extra) { return h(C.Card, Object.assign({ tone: tone, style: { width: 200, boxSizing: 'border-box' } }, extra), h('h3', null, title), h('p', null, text)); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    card('raised', 'Morning routine', 'Three small habits, done before nine.'),
+    card('clay', 'Focus hour', 'Notifications off until 11:00.'),
+    card('mint', 'All caught up', 'Nothing left in your inbox.', { interactive: true, tabIndex: 0 }),
+    card('butter', 'New: streaks', 'Keep a habit alive for a week.')));
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!-- @dsCard group="Examples" height=640 width=1100 subtitle="Analytics overview" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Dashboard example</title></head>
+<body>
+<div style="display:flex;min-height:640px;background:var(--canvas)">
+  <aside class="ii-side" style="padding-top:var(--space-5)">
+    <a class="ii-wordmark" href="#" style="padding:0 12px 20px;font-size:22px">Ivory <em>&amp;</em> Ink</a>
+    <a class="ii-side-item is-active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20h-5v-6h-6v6H4z"/></svg>Overview</a>
+    <a class="ii-side-item" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 7.5 12 4l8 3.5v9L12 20l-8-3.5z"/><path d="M4 7.5 12 11l8-3.5M12 11v9"/></svg>Orders<span class="ii-count">24</span></a>
+    <a class="ii-side-item" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21 20c0-2.6-1.6-4.8-4-5.6"/></svg>Customers</a>
+    <a class="ii-side-item" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg>Reports</a>
+    <a class="ii-side-item" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg>Settings</a>
+  </aside>
+  <main style="flex:1;padding:var(--space-6) var(--space-6);display:flex;flex-direction:column;gap:var(--space-5);min-width:0">
+    <div class="ii-row" style="justify-content:space-between">
+      <div><div class="ii-cap">Friday, 23 October</div><h1 class="ii-serif" style="font-size:40px;line-height:44px;margin:4px 0 0;letter-spacing:-0.015em">Good afternoon, Sifat</h1></div>
+      <div class="ii-row"><div class="ii-seg"><button>Week</button><button class="is-on">Month</button><button>Year</button></div><button class="ii-btn ii-btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>New order</button></div>
+    </div>
+    <div class="ii-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+      <div class="ii-card"><div class="ii-cap">Revenue</div><div class="ii-stat-value">৳ 4,82,500</div><span class="ii-delta-up">+12.4%</span> <span class="ii-small ii-muted">vs last month</span></div>
+      <div class="ii-card"><div class="ii-cap">Orders</div><div class="ii-stat-value">1,284</div><span class="ii-delta-up">+3.1%</span> <span class="ii-small ii-muted">vs last month</span></div>
+      <div class="ii-card"><div class="ii-cap">Refund rate</div><div class="ii-stat-value">1.8%</div><span class="ii-delta-down">+0.4 pts</span> <span class="ii-small ii-muted">vs last month</span></div>
+    </div>
+    <div class="ii-grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)">
+      <div class="ii-card">
+        <div class="ii-row" style="justify-content:space-between"><h3 class="ii-card-title">Revenue by week</h3><span class="ii-small ii-muted">৳, thousands</span></div>
+        <svg viewBox="0 0 400 150" width="100%" height="150" aria-label="Weekly revenue bars" style="margin-top:16px;display:block">
+          <line x1="0" y1="140" x2="400" y2="140" style="stroke:var(--line)"/>
+          <line x1="0" y1="90" x2="400" y2="90" style="stroke:var(--line);stroke-dasharray:2 4"/>
+          <line x1="0" y1="40" x2="400" y2="40" style="stroke:var(--line);stroke-dasharray:2 4"/>
+          <rect x="16" y="80" width="40" height="60" rx="2" style="fill:var(--line-strong)"/>
+          <rect x="80" y="64" width="40" height="76" rx="2" style="fill:var(--line-strong)"/>
+          <rect x="144" y="90" width="40" height="50" rx="2" style="fill:var(--line-strong)"/>
+          <rect x="208" y="52" width="40" height="88" rx="2" style="fill:var(--line-strong)"/>
+          <rect x="272" y="44" width="40" height="96" rx="2" style="fill:var(--line-strong)"/>
+          <rect x="336" y="22" width="40" height="118" rx="2" style="fill:var(--brass)"/>
+        </svg>
+      </div>
+      <div class="ii-card">
+        <h3 class="ii-card-title">Top products</h3>
+        <div class="ii-col" style="gap:12px;margin-top:12px">
+          <div class="ii-row" style="justify-content:space-between"><span>Linen notebook</span><span class="ii-num">৳ 92,400</span></div><hr class="ii-divider">
+          <div class="ii-row" style="justify-content:space-between"><span>Brass pen</span><span class="ii-num">৳ 71,050</span></div><hr class="ii-divider">
+          <div class="ii-row" style="justify-content:space-between"><span>Desk tray</span><span class="ii-num">৳ 38,900</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ii-card" style="padding:0;overflow:hidden">
+      <table class="ii-table"><thead><tr><th>Order</th><th>Customer</th><th>Status</th><th class="r">Amount</th></tr></thead>
+      <tbody>
+        <tr><td class="ii-num">INV-0142</td><td>Nusrat Jahan</td><td><span class="ii-badge ii-badge-success">Paid</span></td><td class="r ii-num">৳ 3,450</td></tr>
+        <tr><td class="ii-num">INV-0141</td><td>Rafiul Karim</td><td><span class="ii-badge ii-badge-warning">Pending</span></td><td class="r ii-num">৳ 12,800</td></tr>
+        <tr><td class="ii-num">INV-0140</td><td>Tania Akter</td><td><span class="ii-badge ii-badge-danger">Overdue</span></td><td class="r ii-num">৳ 1,950</td></tr>
+      </tbody></table>
+    </div>
+  </main>
+</div>
+</body>
+</html>

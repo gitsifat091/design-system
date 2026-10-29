@@ -1,0 +1,33 @@
+<!-- @dsCard group="Feedback" height=130 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Badge</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var B = L.Badge;
+  return h('div', { className: 'lm-pad lm-col' },
+    Row('Tones', [h(B, { key: 1 }, 'Draft'), h(B, { key: 2, tone: 'primary' }, 'In review'), h(B, { key: 3, tone: 'success', icon: 'check' }, 'Paid'), h(B, { key: 4, tone: 'warning', icon: 'alert' }, 'Overdue'), h(B, { key: 5, tone: 'danger', icon: 'x' }, 'Failed')]),
+    Row('Dot and pill', [h(B, { key: 1, tone: 'success', dot: true, pill: true }, 'Online'), h(B, { key: 2, tone: 'warning', dot: true, pill: true }, 'Degraded'), h(B, { key: 3, pill: true }, 'v2.4.0'), h(B, { key: 4, tone: 'primary', pill: true }, 'Pro')]));
+});
+</script>
+</body>
+</html>

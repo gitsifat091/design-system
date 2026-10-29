@@ -1,0 +1,35 @@
+<!-- @dsCard group="Forms" height=130 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Switch</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var S = L.Switch;
+  return h('div', { className: 'lm-pad', style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-4) var(--space-6)' } },
+    h(S, { label: 'On', defaultChecked: true }),
+    h(S, { label: 'Off' }),
+    h(S, { label: 'Focused', state: 'focus', defaultChecked: true }),
+    h(S, { label: 'Disabled', disabled: true }));
+});
+</script>
+</body>
+</html>

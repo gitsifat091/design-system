@@ -1,0 +1,38 @@
+<!-- @dsCard group="Forms" height=420 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TextField</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var T = L.TextField;
+  return h('div', { className: 'lm-pad', style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 'var(--space-5) var(--space-6)' } },
+    h(T, { label: 'Full name', placeholder: 'Ada Lovelace', hint: 'As it appears on invoices.' }),
+    h(T, { label: 'Email', icon: 'mail', type: 'email', placeholder: 'you@company.com', required: true }),
+    h(T, { label: 'Focused', defaultValue: 'Northwind Labs', state: 'focus' }),
+    h(T, { label: 'Workspace URL', prefix: 'https://', suffix: '.lumen.app', defaultValue: 'northwind', error: 'This URL is already taken.' }),
+    h(T, { label: 'API key', defaultValue: 'lm_live_4f9a2c71', readOnly: true, icon: 'key', hint: 'Read-only. Rotate it in Settings.' }),
+    h(T, { label: 'Disabled', placeholder: 'Not available on this plan', disabled: true }),
+    h(T, { label: 'Notes', optional: true, multiline: true, rows: 3, placeholder: 'Anything the team should know' }));
+});
+</script>
+</body>
+</html>

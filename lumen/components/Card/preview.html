@@ -1,0 +1,39 @@
+<!-- @dsCard group="Containers" height=500 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var B = L.Button;
+  return h('div', { className: 'lm-pad', style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'var(--space-6)', alignItems: 'start' } },
+    h(L.Card, { title: 'Outlined', description: 'The default container for grouped content.', actions: h(B, { variant: 'ghost', size: 'sm', icon: 'more', 'aria-label': 'More' }),
+      footer: [h(B, { key: 1, variant: 'ghost', size: 'sm' }, 'Cancel'), h(B, { key: 2, size: 'sm' }, 'Save')] },
+      h('p', { style: { margin: 0, color: 'var(--fg-muted)' } }, 'Borders carry structure; padding is space-6 with a space-5 head.')),
+    h(L.Card, { variant: 'elevated', title: 'Elevated', description: 'shadow-sm for content that sits above a busy page.' },
+      h('div', { className: 'lm-row' }, h(L.Badge, { tone: 'success', dot: true }, 'Active'), h('span', { className: 'lm-muted' }, '12 members'))),
+    h('div', { className: 'lm-col' },
+      h(L.Card, { variant: 'interactive', title: 'Interactive, hover', description: 'Whole card is one button.', state: 'hover' }),
+      h(L.Card, { variant: 'interactive', title: 'Interactive, selected', description: 'primary edge marks the choice.', selected: true })));
+});
+</script>
+</body>
+</html>

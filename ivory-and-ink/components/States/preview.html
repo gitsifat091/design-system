@@ -1,0 +1,20 @@
+<!-- @dsCard group="Foundations" height=360 subtitle="One state model across components" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>States</title></head>
+<body>
+<div class="ii-pad">
+<table class="ii-table" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;border-collapse:separate;border-spacing:0">
+  <thead><tr><th>State</th><th>Button</th><th>Input</th><th>Checkbox</th><th>Rule</th></tr></thead>
+  <tbody>
+    <tr><td>Default</td><td><button class="ii-btn ii-btn-secondary ii-btn-sm">Action</button></td><td><input class="ii-input" style="height:32px" placeholder="Value"></td><td><span class="ii-box"></span></td><td class="ii-muted ii-small">line-strong border</td></tr>
+    <tr><td>Hover</td><td><button class="ii-btn ii-btn-secondary ii-btn-sm is-hover">Action</button></td><td><input class="ii-input is-hover" style="height:32px" placeholder="Value"></td><td><span class="ii-box" style="border-color:var(--ink-muted)"></span></td><td class="ii-muted ii-small">one step darker</td></tr>
+    <tr><td>Focus</td><td><button class="ii-btn ii-btn-secondary ii-btn-sm is-focus">Action</button></td><td><input class="ii-input is-focus" style="height:32px" value="Value"></td><td><span class="ii-box is-focus"></span></td><td class="ii-muted ii-small">2px focus ring, 2px gap</td></tr>
+    <tr><td>Selected</td><td><button class="ii-btn ii-btn-primary ii-btn-sm">Action</button></td><td><input class="ii-input" style="height:32px" value="Value"></td><td><span class="ii-box is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></span></td><td class="ii-muted ii-small">ink fill, or brass marker</td></tr>
+    <tr><td>Error</td><td><button class="ii-btn ii-btn-danger ii-btn-sm">Action</button></td><td><input class="ii-input is-error" style="height:32px" value="Value"></td><td><span class="ii-box" style="border-color:var(--danger)"></span></td><td class="ii-muted ii-small">danger + message + icon</td></tr>
+    <tr><td>Disabled</td><td><button class="ii-btn ii-btn-secondary ii-btn-sm" disabled>Action</button></td><td><input class="ii-input" style="height:32px" disabled value="Value"></td><td class="is-disabled"><span class="ii-box"></span></td><td class="ii-muted ii-small">surface-sunken, ink-faint</td></tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

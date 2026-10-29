@@ -1,0 +1,54 @@
+<!-- @dsCard group="Patterns" height=540 width=980 page subtitle="Every interactive state, side by side" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StateMatrix</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+  .sm-grid { display: grid; grid-template-columns: 140px repeat(5, 1fr); gap: var(--space-4) var(--space-4); align-items: center; }
+  .sm-head { font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); }
+  .sm-name { font-size: 13px; font-weight: 500; color: var(--fg); }
+  .sm-cell { min-width: 0; }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var B = L.Button, states = ['default', 'hover', 'focus', 'active', 'disabled'];
+  var heads = ['Default', 'Hover', 'Focus', 'Pressed / on', 'Disabled'];
+  function st(s) { return s === 'default' || s === 'disabled' ? {} : { state: s }; }
+  function dis(s) { return s === 'disabled'; }
+  var rows = [
+    ['Primary button', function (s) { return h(B, Object.assign({ disabled: dis(s) }, st(s)), 'Save'); }],
+    ['Secondary button', function (s) { return h(B, Object.assign({ variant: 'secondary', disabled: dis(s) }, st(s)), 'Export'); }],
+    ['Ghost button', function (s) { return h(B, Object.assign({ variant: 'ghost', disabled: dis(s), icon: 'plus' }, st(s)), 'Add'); }],
+    ['Text input', function (s) { return h(L.TextField, Object.assign({ 'aria-label': 'Example', placeholder: 'Search', icon: 'search', disabled: dis(s) }, s === 'active' ? {} : st(s))); }],
+    ['Input, error', function (s) { return s === 'disabled' || s === 'active' ? h('span', { className: 'lm-muted', style: { fontSize: 12 } }, 'n/a') : h(L.TextField, Object.assign({ 'aria-label': 'Example', defaultValue: 'acme', error: 'Taken' }, st(s))); }],
+    ['Checkbox', function (s) { return h(L.Checkbox, { label: 'Remember me', defaultChecked: s === 'focus' || s === 'active' || s === 'disabled', disabled: dis(s), state: s === 'hover' || s === 'focus' ? s : undefined }); }],
+    ['Switch', function (s) { return h(L.Switch, { 'aria-label': 'Example', defaultChecked: s === 'focus' || s === 'active' || s === 'disabled', disabled: dis(s), state: s === 'hover' || s === 'focus' ? s : undefined }); }],
+    ['Nav item', function (s) { return h('a', { href: '#', className: 'lm-nav-item' + (s === 'hover' ? ' is-hover' : '') + (s === 'focus' ? ' is-focus' : ''), 'aria-current': s === 'active' ? 'page' : undefined, style: s === 'disabled' ? { color: 'var(--fg-disabled)', pointerEvents: 'none' } : undefined, onClick: function (e) { e.preventDefault(); } }, h(L.Icon, { name: 'home' }), h('span', { className: 'lm-nav-label' }, s === 'active' ? 'Current' : 'Overview')); }]
+  ];
+  return h('div', { className: 'lm-pad' },
+    h('div', { className: 'sm-grid' },
+      h('span', { className: 'sm-head' }, 'Component'), heads.map(function (t) { return h('span', { key: t, className: 'sm-head' }, t); }),
+      rows.map(function (r) {
+        return [h('span', { key: r[0], className: 'sm-name' }, r[0])].concat(states.map(function (s) { return h('div', { key: r[0] + s, className: 'sm-cell' }, r[1](s)); }));
+      })));
+});
+</script>
+</body>
+</html>

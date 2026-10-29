@@ -1,0 +1,24 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-23T06:30:00Z"
+  },
+  "title": "Ivory & Ink",
+  "namespace": "IvoryInk",
+  "libraries": [],
+  "sections": {},
+  "groups": [],
+  "assetGroups": {},
+  "blobs": {},
+  "docs": {
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Sifat",
+    "at": "2026-10-23T06:30:00Z",
+    "via": "Claude",
+    "note": "Created the minimal premium system: tokens, components, examples, cover."
+  }
+}

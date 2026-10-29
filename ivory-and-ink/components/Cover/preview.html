@@ -1,0 +1,50 @@
+<!-- @dsCard height=320 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ivory &amp; Ink</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--canvas); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:320px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:320px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:320px; }
+  .deep { fill:var(--ink); }
+  .brass { fill:var(--brass); }
+  .relief { fill:var(--ink-muted); }
+  .blk { rx:var(--radius-xs); }
+  .rule { stroke:var(--line-strong); stroke-width:1; }
+  .words { position:absolute; left:var(--space-6); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-family:var(--font-display); font-weight:400; font-size:104px; line-height:.95; letter-spacing:-0.02em; color:var(--ink); }
+  .name em { font-style:italic; color:var(--brass); }
+  .tag { margin:var(--space-2) 0 0 4px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 320" width="480" height="320">
+<!--
+  blocks      ink 192x304 bled off the top (the signature ink-on-ivory, largest) · brass 176x208 bleeding off the right (the one accent) · ink-muted 96x160 (relief) · brass 32x32 satellite, about 36% of 960x320
+  arrangement one tall ink slab with satellites, bottoms on one line space-6 above the edge, space-4 gutters
+  pattern     hairlines, from "Borders, not shadows" and the serif display face: four line-strong rules at a space-8 pitch crossing the blocks
+  scales      sides in space-4 multiples; gutters space-4; rule pitch space-8; corners radius-xs
+-->
+<rect class="relief blk" x="0" y="128" width="96" height="160" rx="2"/>
+<rect class="brass blk" x="48" y="64" width="32" height="32" rx="2"/>
+<rect class="deep blk" x="112" y="-16" width="192" height="304" rx="2"/>
+<rect class="brass blk" x="320" y="80" width="176" height="208" rx="2"/>
+<line class="rule" x1="0" y1="48" x2="480" y2="48"/>
+<line class="rule" x1="0" y1="112" x2="480" y2="112"/>
+<line class="rule" x1="0" y1="176" x2="480" y2="176"/>
+<line class="rule" x1="0" y1="240" x2="480" y2="240"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Ivory <em>&amp;</em><br>Ink</h1>
+<p class="tag">Minimal and premium. Ivory, ink and a single brass accent.</p>
+</div>
+</div>
+</body>
+</html>

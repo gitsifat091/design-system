@@ -1,0 +1,25 @@
+{
+  "v": 3,
+  "assetGroups": {},
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-29T20:06:38Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [],
+  "lastChange": {
+    "by": "Sifat",
+    "at": "2026-10-29T20:09:54Z",
+    "via": "Cowork",
+    "note": "Review fixes: lighter dark highlight, darker success, outlined secondary buttons"
+  },
+  "layout": "files",
+  "libraries": [],
+  "namespace": "Neomorphism",
+  "sections": {},
+  "title": "Neomorphism"
+}

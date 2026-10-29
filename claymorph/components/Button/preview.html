@@ -1,0 +1,17 @@
+<!-- @dsCard group="Actions" height=120 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Button</title></head>
+<body>
+<div id="root" class="cm-row"></div>
+<script>
+  var C = window.Claymorph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(C.Button, null, 'Save changes'),
+    h(C.Button, { variant: 'secondary' }, 'Preview'),
+    h(C.Button, { variant: 'accent' }, 'Mark done'),
+    h(C.Button, { variant: 'ghost' }, 'Skip for now'),
+    h(C.Button, { variant: 'secondary', disabled: true }, 'Disabled')));
+</script>
+</body>
+</html>

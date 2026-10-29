@@ -1,0 +1,35 @@
+<!-- @dsCard group="Feedback" height=420 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Alert</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var A = L.Alert, B = L.Button;
+  return h('div', { className: 'lm-pad lm-col', style: { gap: 'var(--space-3)' } },
+    h(A, { tone: 'info', title: 'Scheduled maintenance', onClose: function () {} }, 'Billing will be read-only on Sunday from 02:00 to 03:00 UTC.'),
+    h(A, { tone: 'success', title: 'Invoice sent' }, 'INV-2041 was emailed to accounts@globex.com.'),
+    h(A, { tone: 'warning', title: 'You have used 86% of your plan', actions: [h(B, { key: 1, size: 'sm', variant: 'secondary' }, 'Upgrade plan'), h(B, { key: 2, size: 'sm', variant: 'ghost' }, 'View usage')] }, 'New members cannot be added after 100%.'),
+    h(A, { tone: 'danger', title: 'Payment failed' }, 'The card ending 4417 was declined. Update it to keep your workspace active.'));
+});
+</script>
+</body>
+</html>

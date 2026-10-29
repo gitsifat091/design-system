@@ -1,0 +1,34 @@
+<!-- @dsCard group="Data display" height=110 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Avatar</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  var A = L.Avatar;
+  return h('div', { className: 'lm-pad lm-col' },
+    Row('Sizes', [h(A, { key: 1, name: 'Samira Haque', size: 'sm' }), h(A, { key: 2, name: 'Samira Haque' }), h(A, { key: 3, name: 'Samira Haque', size: 'lg' }), h(A, { key: 4, name: 'Diego Ruiz', tone: 'neutral' }),
+      h(A, { key: 5, name: 'Lena Park', status: 'online' }), h(A, { key: 6, name: 'Tom Okafor', status: 'away' }), h(A, { key: 7, name: 'Ivy Chen', status: 'offline' }),
+      h(L.AvatarGroup, { key: 8, names: ['Ana Silva', 'Ben Lee', 'Cara Diaz', 'Dev Rao'] })]));
+});
+</script>
+</body>
+</html>

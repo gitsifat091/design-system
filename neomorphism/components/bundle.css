@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap");
+
+body { background: var(--surface); color: var(--ink); font-family: var(--font-sans); font-weight: 500; }
+
+.nm-row { display: flex; flex-wrap: wrap; gap: var(--space-6); align-items: center; padding: var(--space-6); }
+.nm-focus:focus-visible, .nm-btn:focus-visible, .nm-input:focus-visible, .nm-toggle input:focus-visible + .nm-track {
+  outline: 2px solid var(--focus); outline-offset: 3px;
+}
+
+/* Button */
+.nm-btn {
+  font: inherit; font-size: 14px; line-height: 20px; font-weight: 700; color: var(--ink);
+  background: var(--surface); border: 0; border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-6); box-shadow: var(--raised-sm); cursor: pointer;
+  display: inline-flex; align-items: center; gap: var(--space-1);
+}
+.nm-btn:where(:not(.nm-btn--primary)) { outline: 1px solid var(--line); outline-offset: 0; }
+.nm-btn:active, .nm-btn[aria-pressed="true"] { box-shadow: var(--pressed); }
+.nm-btn--primary { background: var(--accent); color: var(--on-accent); }
+.nm-btn--primary:active { box-shadow: var(--pressed); }
+.nm-btn:disabled { color: var(--ink-muted); box-shadow: none; outline: 1px dashed var(--line); cursor: not-allowed; }
+
+/* Card */
+.nm-card { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--raised-md); max-width: 320px; }
+.nm-card h3 { margin: 0 0 var(--space-2); font-size: 20px; line-height: 26px; font-weight: 700; }
+.nm-card p { margin: 0; color: var(--ink-muted); font-size: 16px; line-height: 24px; }
+
+/* Input */
+.nm-field { display: grid; gap: var(--space-2); min-width: 240px; }
+.nm-field label { font-size: 14px; line-height: 20px; font-weight: 700; }
+.nm-input {
+  font: inherit; color: var(--ink); background: var(--surface-sunken); border: 0;
+  border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); box-shadow: var(--inset-sm);
+}
+.nm-field .nm-help { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--ink-muted); }
+.nm-field--error .nm-input { outline: 2px solid var(--danger); outline-offset: 0; }
+.nm-field--error .nm-help { color: var(--danger); }
+
+/* Toggle */
+.nm-toggle { display: inline-flex; align-items: center; gap: var(--space-3); cursor: pointer; font-size: 14px; font-weight: 700; }
+.nm-toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.nm-track { width: 56px; height: 32px; border-radius: var(--radius-pill); background: var(--surface-sunken); box-shadow: var(--inset-sm); position: relative; outline: 1px solid var(--line); outline-offset: 0; }
+.nm-track::after { content: ""; position: absolute; top: 4px; left: 4px; width: 24px; height: 24px; border-radius: var(--radius-pill); background: var(--surface); box-shadow: var(--raised-sm); transition: left .15s; }
+.nm-toggle input:checked + .nm-track { background: var(--accent); }
+.nm-toggle input:checked + .nm-track::after { left: 28px; }

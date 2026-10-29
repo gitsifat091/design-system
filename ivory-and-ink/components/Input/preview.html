@@ -1,0 +1,16 @@
+<!-- @dsCard group="Forms" height=420 subtitle="Text, search, select, textarea and states" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Input</title></head>
+<body>
+<div class="ii-pad ii-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px">
+  <div class="ii-field"><label class="ii-label">Full name</label><input class="ii-input" placeholder="Samad Amin"></div>
+  <div class="ii-field"><label class="ii-label">Search</label><div class="ii-input-wrap"><span class="ii-affix"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><input class="ii-input" placeholder="Search orders"></div></div>
+  <div class="ii-field"><label class="ii-label">Email <span class="opt">(focus)</span></label><input class="ii-input is-focus" value="hello@studio.com"><span class="ii-help">We never share your email.</span></div>
+  <div class="ii-field"><label class="ii-label">Password <span class="opt">(error)</span></label><input class="ii-input is-error" type="password" value="abc"><span class="ii-help is-error"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16v.5"/></svg> Use at least 8 characters.</span></div>
+  <div class="ii-field"><label class="ii-label">Plan</label><select class="ii-input ii-select"><option>Studio, yearly</option><option>Studio, monthly</option></select></div>
+  <div class="ii-field"><label class="ii-label">Workspace ID <span class="opt">(disabled)</span></label><input class="ii-input" disabled value="WS-0142"></div>
+  <div class="ii-field" style="grid-column:1/-1"><label class="ii-label">Note <span class="opt">(optional)</span></label><textarea class="ii-input" placeholder="Anything we should know?"></textarea></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- @dsCard group="Navigation" height=170 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tabs</title>
+<style>
+  html, body { margin: 0; background: var(--bg); }
+
+</style>
+</head>
+<body>
+<div id="root" class="lm-root"></div>
+<script>
+
+var L = window.Lumen, h = React.createElement;
+function Row(label, kids, opts) {
+  opts = opts || {};
+  return h('div', { style: { display: 'grid', gridTemplateColumns: (opts.w || 96) + 'px 1fr', gap: 'var(--space-4)', alignItems: 'center' } },
+    h('span', { style: { fontSize: 11, lineHeight: '16px', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)' } }, label),
+    h('div', { className: 'lm-row' }, kids));
+}
+function mount(App) { ReactDOM.createRoot(document.getElementById('root')).render(h(App)); }
+
+mount(function () {
+  return h('div', { className: 'lm-pad lm-col', style: { gap: 'var(--space-6)' } },
+    h(L.Tabs, { label: 'Invoice filters', items: [{ value: 'all', label: 'All', count: 128 }, { value: 'open', label: 'Open', count: 12 }, { value: 'paid', label: 'Paid', state: 'hover' }, { value: 'void', label: 'Void', disabled: true }] }),
+    h(L.Tabs, { variant: 'segmented', label: 'Range', defaultValue: '30d', items: [{ value: '7d', label: '7 days' }, { value: '30d', label: '30 days' }, { value: '12m', label: '12 months' }] }));
+});
+</script>
+</body>
+</html>

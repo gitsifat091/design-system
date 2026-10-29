@@ -1,0 +1,99 @@
+/* Neomorphism tokens, generated from tokens.json. Light is the default; dark follows
+   data-theme="dark" on <html>, or the OS setting when no data-theme is set. */
+
+:root, [data-theme="light"] {
+  --surface: #e4e8ee;
+  --surface-sunken: #d9dee6;
+  --shadow-light: #ffffff;
+  --shadow-dark: #b3bac5;
+  --ink: #2d3340;
+  --ink-muted: #545d6c;
+  --line: #78818f;
+  --accent: #c2502a;
+  --on-accent: #ffffff;
+  --accent-text: #a3421f;
+  --focus: var(--accent-text);
+  --success: #1a6456;
+  --danger: #b42c3a;
+  --font-sans: Nunito, "Segoe UI", system-ui, sans-serif;
+  --type-display-size: 48px;
+  --type-display-line-height: 52px;
+  --type-display-weight: 800;
+  --type-display-letter-spacing: -0.02em;
+  --type-title-size: 28px;
+  --type-title-line-height: 34px;
+  --type-title-weight: 700;
+  --type-heading-size: 20px;
+  --type-heading-line-height: 26px;
+  --type-heading-weight: 700;
+  --type-body-size: 16px;
+  --type-body-line-height: 24px;
+  --type-body-weight: 500;
+  --type-label-size: 14px;
+  --type-label-line-height: 20px;
+  --type-label-weight: 700;
+  --type-caption-size: 12px;
+  --type-caption-line-height: 16px;
+  --type-caption-weight: 600;
+  --type-caption-letter-spacing: 0.02em;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --raised-sm: 4px 4px 8px #b3bac5, -4px -4px 8px #ffffff;
+  --raised-md: 8px 8px 16px #b3bac5, -8px -8px 16px #ffffff;
+  --raised-lg: 14px 14px 28px #b3bac5, -14px -14px 28px #ffffff;
+  --pressed: inset 4px 4px 8px #b3bac5, inset -4px -4px 8px #ffffff;
+  --inset-sm: inset 2px 2px 4px #b3bac5, inset -2px -2px 4px #ffffff;
+}
+
+[data-theme="dark"] {
+  --surface: #272b33;
+  --surface-sunken: #1f2228;
+  --shadow-light: #363b46;
+  --shadow-dark: #1a1d22;
+  --ink: #e8ebf0;
+  --ink-muted: #a3abb8;
+  --line: #808998;
+  --accent: #ff8a5c;
+  --on-accent: #272b33;
+  --accent-text: #ff8a5c;
+  --focus: var(--accent);
+  --success: #5fc7ad;
+  --danger: #ff7a85;
+  --raised-sm: 4px 4px 8px #1a1d22, -4px -4px 8px #363b46;
+  --raised-md: 8px 8px 16px #1a1d22, -8px -8px 16px #363b46;
+  --raised-lg: 14px 14px 28px #1a1d22, -14px -14px 28px #363b46;
+  --pressed: inset 4px 4px 8px #1a1d22, inset -4px -4px 8px #363b46;
+  --inset-sm: inset 2px 2px 4px #1a1d22, inset -2px -2px 4px #363b46;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --surface: #272b33;
+    --surface-sunken: #1f2228;
+    --shadow-light: #363b46;
+    --shadow-dark: #1a1d22;
+    --ink: #e8ebf0;
+    --ink-muted: #a3abb8;
+    --line: #808998;
+    --accent: #ff8a5c;
+    --on-accent: #272b33;
+    --accent-text: #ff8a5c;
+    --focus: var(--accent);
+    --success: #5fc7ad;
+    --danger: #ff7a85;
+    --raised-sm: 4px 4px 8px #1a1d22, -4px -4px 8px #363b46;
+    --raised-md: 8px 8px 16px #1a1d22, -8px -8px 16px #363b46;
+    --raised-lg: 14px 14px 28px #1a1d22, -14px -14px 28px #363b46;
+    --pressed: inset 4px 4px 8px #1a1d22, inset -4px -4px 8px #363b46;
+    --inset-sm: inset 2px 2px 4px #1a1d22, inset -2px -2px 4px #363b46;
+  }
+}
